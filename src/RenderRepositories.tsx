@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Alert } from "react-bootstrap";
+import { Alert, Container, Col, Row, Card, Button, Accordion } from "react-bootstrap";
 
 interface Repository {
     name: string,
@@ -30,14 +30,41 @@ export default function RenderRepositories() {
         return <Alert variant="warning">Couldn't fetch data</Alert>
     }
 
-    const listItems = repos.map(repo =>
-        <li key={repo.name}>
-            <a href={repo.url} target="blank">{repo.name}</a>
-            
-        </li>
+    const repoCards = repos.map(repo =>
+        <Col sm="12" md="6" lg="4" key={repo.name}>
+            <Card border="secondary" className="mt-4 border- shadow">
+
+                <Card.Img variant="top" className="w-50 mx-auto d-block" src="/github-mark.svg"/>
+                <Card.Body>
+                    <Card.Header>
+                        <Card.Title>
+                            {repo.name}
+                        </Card.Title>
+                    </Card.Header>
+                    
+                    <Accordion className="mb-3 rounded-bottom">
+                        <Accordion.Item className="bg-dark mt-3" eventKey="0">
+                            <Accordion.Header>Description</Accordion.Header>
+                            <Accordion.Body>
+                                {repo.description}
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
+
+                    <Button href={repo.url} target="blank" variant="outline-success">Visit repository</Button>
+                </Card.Body>
+            </Card>
+        </Col>
+        
+        
     );
 
    return (
-    <ul>{listItems}</ul>
+    <Container fluid>
+        <h2>My projects</h2>
+        <Row >
+            {repoCards}
+        </Row>
+    </Container>
    )
 }
