@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Alert, Container, Col, Row, Card, Button, Accordion } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 interface Repository {
     name: string,
