@@ -1,7 +1,7 @@
 import { Container, Col, Row, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default function ColumnTest() {
+export default function ColumnTest() {    
     return (
         <Container fluid='md'>
             <Row>
