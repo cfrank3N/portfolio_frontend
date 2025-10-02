@@ -62,7 +62,7 @@ export default function MyContactForm() {
                             <Form.Label className='mt-2'>Message</Form.Label>
                             <Form.Control value={message} onChange={(e) => setMessage(e.target.value)} as='textarea' rows={4} placeholder='Message...'></Form.Control>
                         </Form.Group>
-                        <Button className='mt-3' type="submit">Send Message</Button>
+                        <Button className='mt-3' variant='outline-success' type="submit">Send Message</Button>
                         <MessageSentAlert show={successAlertShow} onClose={() => setSuccessAlertShow(false)} />
                         <MessageFailedAlert show={failAlertShow} onClose={() => setFailAlertShow(false)} />   
                     </Form>
