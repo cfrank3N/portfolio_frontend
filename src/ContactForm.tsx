@@ -1,25 +1,61 @@
-import { Container, Col, Row, Form } from 'react-bootstrap';
+import { Container, Col, Row, Form, Button, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useState } from 'react';
 
 export default function MyContactForm() {    
+
+    const [name, setName] = useState<string>();
+    const [email, setEmail] = useState<string>();
+    const [message, setMessage] = useState<string>();
+    const [show, setShow] = useState(true);
+
+    const sendMessage = (event: React.FormEvent) => {
+        event.preventDefault();
+        
+            const postMessageToBackend = async () => {
+
+                const response = await fetch("https://portfolioapiadamfrank.azurewebsites.net/api/savemessage", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        sendername: name,
+                        senderemail: email,
+                        content: message
+                    })
+                });
+
+                if (response.ok) {
+                    setName("");
+                    setEmail("");
+                    setMessage("");  
+                } 
+            }
+        
+        postMessageToBackend();
+        
+    }
+
     return (
         <Container className='mt-4'>
             <h2 className='mb-3'>Contact me</h2>
             <Row className='justify-content-center'>
-                <Col md={8}>
-                    <Form>
+                <Col md={6}>
+                    <Form onSubmit={sendMessage}>
                         <Form.Group>
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type='text' placeholder='Adam Frank'></Form.Control>
+                            <Form.Control value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='Adam Frank'></Form.Control>
                         </Form.Group>
                         <Form.Group className='mt-2'>
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type='email' placeholder='your@email.com'></Form.Control>
+                            <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type='email' placeholder='your@email.com'></Form.Control>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label className='mt-2'>Message</Form.Label>
-                            <Form.Control as='textarea' rows={4} placeholder='Message...'></Form.Control>
+                            <Form.Control value={message} onChange={(e) => setMessage(e.target.value)} as='textarea' rows={4} placeholder='Message...'></Form.Control>
                         </Form.Group>
+                        <Button className='mt-3' type="submit">Send Message</Button>
                     </Form>
                 </Col>
             </Row>
