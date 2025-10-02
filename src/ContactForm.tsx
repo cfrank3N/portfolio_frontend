@@ -9,8 +9,8 @@ export default function MyContactForm() {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [message, setMessage] = useState<string>("");
-    const [alertShow, setAlertShow] = useState(false);
-    
+    const [successAlertShow, setSuccessAlertShow] = useState(false);
+    const [failAlertShow, setFailAlertShow] = useState(false);
 
     const sendMessage = (event: React.FormEvent) => {
         event.preventDefault();
@@ -29,11 +29,14 @@ export default function MyContactForm() {
                     })
                 });
 
+                setName("");
+                setEmail("");
+                setMessage(""); 
+                
                 if (response.ok) {
-                    setName("");
-                    setEmail("");
-                    setMessage(""); 
-                    setAlertShow(true) 
+                    setSuccessAlertShow(true); 
+                } else {
+                    setFailAlertShow(true);
                 } 
             }
         
@@ -60,7 +63,8 @@ export default function MyContactForm() {
                             <Form.Control value={message} onChange={(e) => setMessage(e.target.value)} as='textarea' rows={4} placeholder='Message...'></Form.Control>
                         </Form.Group>
                         <Button className='mt-3' type="submit">Send Message</Button>
-                        <MessageSentAlert show={alertShow} onClose={() => setAlertShow(false)} />
+                        <MessageSentAlert show={successAlertShow} onClose={() => setSuccessAlertShow(false)} />
+                        <MessageFailedAlert show={failAlertShow} onClose={() => setFailAlertShow(false)} />   
                     </Form>
                 </Col>
             </Row>
@@ -71,5 +75,11 @@ export default function MyContactForm() {
 function MessageSentAlert({show, onClose}: AlertProps) {
         return (
             <Alert className='mt-3' show={show} variant="success" onClose={onClose} dismissible>Thank you for contacting me</Alert>
+        )
+}
+
+function MessageFailedAlert({show, onClose}: AlertProps) {
+        return (
+            <Alert className='mt-3' show={show} variant="danger" onClose={onClose} dismissible>Couldn't send message. Try again later</Alert>
         )
 }
