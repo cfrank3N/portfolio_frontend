@@ -62,7 +62,8 @@ export default function MyContactForm() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 type="text"
-                placeholder="Adam Frank"
+                placeholder="Your name"
+                className="shadow"
               ></Form.Control>
             </Form.Group>
             <Form.Group className="mt-2">
@@ -72,6 +73,7 @@ export default function MyContactForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="your@email.com"
+                className="shadow"
               ></Form.Control>
             </Form.Group>
             <Form.Group>
@@ -82,6 +84,7 @@ export default function MyContactForm() {
                 as="textarea"
                 rows={4}
                 placeholder="Message..."
+                className="shadow"
               ></Form.Control>
             </Form.Group>
             <Button className="mt-3" variant="outline-success" type="submit">

@@ -83,13 +83,17 @@ export default function RenderRepositories() {
   ));
 
   return (
-    <Container
-      id="my-projects"
-      fluid
-      className="border-bottom border-info rounded-bottom"
-    >
-      <h2>My projects</h2>
-      <Row className="mb-5">{repoCards}</Row>
-    </Container>
+    <>
+        <Container
+          id="my-projects"
+          fluid
+        >
+          <h2>My projects</h2>
+          <Row className="mb-5">{repoCards}</Row>
+        </Container>
+        <Col 
+            className='bg-body-tertiary rounded mb-4'>&nbsp;
+        </Col>
+    </>
   );
 }
