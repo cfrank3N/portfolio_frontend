@@ -1,3 +1,4 @@
+import AboutMe from './AboutMe.tsx';
 import './App.css'
 import MyContactForm from './ContactForm.tsx';
 import MyNavBar from './MyNavBar.tsx';
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
       <MyNavBar />
+      <AboutMe />
       <RenderRepositories />
       <MyContactForm />
     </>
