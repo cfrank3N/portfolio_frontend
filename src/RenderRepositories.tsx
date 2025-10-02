@@ -33,17 +33,17 @@ export default function RenderRepositories() {
 
     const repoCards = repos.map(repo =>
         <Col sm="12" md="6" lg="4" key={repo.name}>
-            <Card border="secondary" className="mt-4 border- shadow">
+            <Card border="secondary" className="mt-4 border- shadow rounded-4">
 
                 <Card.Img variant="top" className="w-50 mx-auto d-block" src="/github-mark.svg"/>
                 <Card.Body>
-                    <Card.Header>
+                    <Card.Header className="rounded">
                         <Card.Title>
                             {repo.name}
                         </Card.Title>
                     </Card.Header>
                     
-                    <Accordion className="mb-3 rounded-bottom">
+                    <Accordion className="mb-3">
                         <Accordion.Item className="bg-dark mt-3" eventKey="0">
                             <Accordion.Header>Description</Accordion.Header>
                             <Accordion.Body>
@@ -61,9 +61,9 @@ export default function RenderRepositories() {
     );
 
    return (
-    <Container fluid>
+    <Container fluid className="border-bottom rounded-bottom">
         <h2>My projects</h2>
-        <Row >
+        <Row className="mb-5">
             {repoCards}
         </Row>
     </Container>
