@@ -1,13 +1,16 @@
-import { Container, Col, Row, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Col, Row, Form, Button, type AlertProps, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react';
 
+
+
 export default function MyContactForm() {    
 
-    const [name, setName] = useState<string>();
-    const [email, setEmail] = useState<string>();
-    const [message, setMessage] = useState<string>();
-    const [show, setShow] = useState(true);
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
+    const [alertShow, setAlertShow] = useState(false);
+    
 
     const sendMessage = (event: React.FormEvent) => {
         event.preventDefault();
@@ -29,7 +32,8 @@ export default function MyContactForm() {
                 if (response.ok) {
                     setName("");
                     setEmail("");
-                    setMessage("");  
+                    setMessage(""); 
+                    setAlertShow(true) 
                 } 
             }
         
@@ -56,9 +60,16 @@ export default function MyContactForm() {
                             <Form.Control value={message} onChange={(e) => setMessage(e.target.value)} as='textarea' rows={4} placeholder='Message...'></Form.Control>
                         </Form.Group>
                         <Button className='mt-3' type="submit">Send Message</Button>
+                        <MessageSentAlert show={alertShow} onClose={() => setAlertShow(false)} />
                     </Form>
                 </Col>
             </Row>
         </Container>
     );
+}
+
+function MessageSentAlert({show, onClose}: AlertProps) {
+        return (
+            <Alert className='mt-3' show={show} variant="success" onClose={onClose} dismissible>Thank you for contacting me</Alert>
+        )
 }
