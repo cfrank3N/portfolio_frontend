@@ -45,7 +45,7 @@ export default function MyContactForm() {
     }
 
     return (
-        <Container className='mt-4'>
+        <Container id="contact-me" className='mt-4'>
             <h2 className='mb-3'>Contact me</h2>
             <Row className='justify-content-center'>
                 <Col md={6}>

@@ -78,7 +78,7 @@ export default function RenderRepositories() {
   ));
 
   return (
-    <Container fluid className="border-bottom rounded-bottom">
+    <Container id="my-projects" fluid className="border-bottom rounded-bottom">
       <h2>My projects</h2>
       <Row className="mb-5">{repoCards}</Row>
     </Container>
