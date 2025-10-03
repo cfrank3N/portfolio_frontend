@@ -4,11 +4,8 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 export default function AboutMe() {
   return (
     <>
-        <Container className="mt-5">
+        <Container>
           <Row className="mb-5">
-              <Col>
-                  <h1>About me</h1>
-              </Col>
           </Row>
           <Row>
               <Col col={6} md="6" sm="12" className="d-flex align-items-center">
@@ -22,8 +19,8 @@ export default function AboutMe() {
                   col={6}
                   md="6"
                   sm="12"
-                  className="d-flex align-items-center align-content-center text-start p-3"
-              >
+                  className="p-3 d-flex align-items-center"
+              >     
                   <p className="bg-dark shadow lead border-black border-bottom border-end p-2 rounded mt-3">
                       Hi! This is me, on a mountain in northern Sweden!
                       <br></br>
