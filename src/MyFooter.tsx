@@ -7,6 +7,7 @@ export default function MyFooter() {
         <hr />
         <div className="d-flex justify-content-between mt-4 text-secondary">
           <a href="/contact" className="text-secondary">Contact me</a>
+          <a href="/" className="text-secondary">Home</a>
           <div>
             <a className="mx-3" href="https://github.com/cfrank3N">
             
