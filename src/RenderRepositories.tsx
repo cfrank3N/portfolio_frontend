@@ -47,7 +47,7 @@ export default function RenderRepositories() {
             <Col xs="3" sm="3">
               <Card.Img
                 variant="top"
-                className="w-75 mt-3 d-block mb-3 bg-body-tertiary rounded-circle"
+                className="w-75 mt-3 d-block mb-3 rounded-circle"
                 src="/github-mark-white.svg"
                 style={{ maxWidth: "50px", height: "auto" }}
               />
@@ -57,9 +57,7 @@ export default function RenderRepositories() {
               sm="9"
               className="p-0 d-flex align-items-center justify-content-end"
             >
-              <Card.Header className="rounded p-2 bg-body-tertiary">
-                <Card.Title>{repo.name}</Card.Title>
-              </Card.Header>
+              <Card.Title>{repo.name}</Card.Title>
             </Col>
           </Row>
           <Row className="bg-body-tertiary rounded">
