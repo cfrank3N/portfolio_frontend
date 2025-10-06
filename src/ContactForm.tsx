@@ -42,7 +42,7 @@ export default function MyContactForm() {
         setContactFormContent("Thank you for contacting me!");
       } else {
         setContactFormVariant("danger");
-        setContactFormContent("Something wen't wrong. Please check that you filled out all of the fields correctly.");
+        setContactFormContent("Something went wrong. Please check that you filled out all of the fields correctly.");
       }
     };
 

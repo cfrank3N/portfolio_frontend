@@ -41,7 +41,7 @@ export default function RenderRepositories() {
 
   const repoCards = repos.map((repo) => (
     <Col sm="6" md="6" lg="4" key={repo.name}>
-      <Card border="secondary" className="mt-4 border- shadow-lg rounded-4">
+      <Card border="secondary" className="mt-4 shadow-lg rounded-4">
         <Card.Body className="p-0">
           <Row>
             <Col xs="3" sm="3">
