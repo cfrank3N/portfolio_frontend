@@ -28,7 +28,7 @@ export default function MyNavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#my-projects">My projects</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/contact">Contact me</Nav.Link>
           </Nav>
         </Navbar.Collapse>
