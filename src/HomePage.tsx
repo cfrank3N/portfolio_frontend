@@ -1,5 +1,5 @@
 import AboutMe from "./AboutMe";
-import MyContactForm from "./ContactForm";
+import MyFooter from "./MyFooter";
 import MyNavBar from "./MyNavBar";
 import RenderRepositories from "./RenderRepositories";
 
@@ -9,7 +9,7 @@ export default function HomePage() {
             <MyNavBar />
             <AboutMe />
             <RenderRepositories/>
-            <MyContactForm/>
+            <MyFooter/>
         </>
      );
 }

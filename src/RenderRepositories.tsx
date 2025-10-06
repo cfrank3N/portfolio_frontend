@@ -89,9 +89,6 @@ export default function RenderRepositories() {
           <h2>My projects</h2>
           <Row className="mb-5">{repoCards}</Row>
         </Container>
-        <Col 
-            className='bg-body-tertiary rounded mb-4'>&nbsp;
-        </Col>
     </>
   );
 }

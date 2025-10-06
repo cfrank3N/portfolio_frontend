@@ -26,9 +26,7 @@ export default function AboutMe() {
                       <br></br>
                       <br></br>I am an aspiring developer fueled by curiosity, translating
                       my passion for exploring the outdoors into a focus on building
-                      robust and efficient code. I thrive on tackling technical
-                      challenges, always seeking new technologies to create seamless
-                      digital experiences.
+                      robust and efficient code.
                       <br></br>
                       <br></br>
                       This portfolio showcases my journey into development, where that

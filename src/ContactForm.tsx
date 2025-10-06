@@ -64,7 +64,6 @@ export default function MyContactForm() {
         <Col md={6}>
           <Form onSubmit={sendMessage}>
             <Form.Group>
-              <Form.Label>Name</Form.Label>
               <Form.Control
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -74,7 +73,6 @@ export default function MyContactForm() {
               ></Form.Control>
             </Form.Group>
             <Form.Group className="mt-2">
-              <Form.Label>Email</Form.Label>
               <Form.Control
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -83,8 +81,7 @@ export default function MyContactForm() {
                 className="shadow"
               ></Form.Control>
             </Form.Group>
-            <Form.Group>
-              <Form.Label className="mt-2">Message</Form.Label>
+            <Form.Group className="mt-2">
               <Form.Control
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
