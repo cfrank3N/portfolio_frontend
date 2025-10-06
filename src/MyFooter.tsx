@@ -3,7 +3,7 @@ import { Container, Image } from "react-bootstrap";
 export default function MyFooter() {
   return (
     <footer className="py-4 mt-5">
-      <Container className="container">
+      <Container>
         <hr />
         <div className="d-flex justify-content-between mt-4 text-secondary">
           <a href="/contact" className="text-secondary">Contact me</a>
