@@ -1,17 +1,10 @@
-import AboutMe from './AboutMe.tsx';
+import { RouterProvider } from 'react-router-dom';
 import './App.css'
-import MyContactForm from './ContactForm.tsx';
-import MyNavBar from './MyNavBar.tsx';
-import RenderRepositories from './RenderRepositories.tsx';
+import router from './routes.ts';
 
 function App() {
   return (
-    <>
-      <MyNavBar />
-      <AboutMe />
-      <RenderRepositories />
-      <MyContactForm />
-    </>
+    <RouterProvider router={router} />
   )
 }
 

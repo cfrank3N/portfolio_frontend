@@ -14,8 +14,9 @@ export default function MyContactForm() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-  const [successAlertShow, setSuccessAlertShow] = useState(false);
-  const [failAlertShow, setFailAlertShow] = useState(false);
+  const [contactFormAlertShow, setContactFormAlertShow] = useState(false);
+  const [contactFormVariant, setContactFormVariant] = useState("");
+  const [contactFormContent, setContactFormContent] = useState("");
 
   const sendMessage = (event: React.FormEvent) => {
     event.preventDefault();
@@ -36,17 +37,23 @@ export default function MyContactForm() {
         }
       );
 
-      setName("");
-      setEmail("");
-      setMessage("");
-
       if (response.ok) {
-        setSuccessAlertShow(true);
+        setContactFormVariant("success");
+        setContactFormContent("Thank you for contacting me!");
       } else {
-        setFailAlertShow(true);
+        setContactFormVariant("danger");
+        setContactFormContent("Something went wrong. Please check that you filled out all of the fields correctly.");
       }
     };
 
+    setName("");
+    setEmail("");
+    setMessage("");
+
+    setContactFormVariant("info");
+    setContactFormContent("Sending email...");
+    setContactFormAlertShow(true);
+    
     postMessageToBackend();
   };
 
@@ -57,7 +64,6 @@ export default function MyContactForm() {
         <Col md={6}>
           <Form onSubmit={sendMessage}>
             <Form.Group>
-              <Form.Label>Name</Form.Label>
               <Form.Control
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -67,7 +73,6 @@ export default function MyContactForm() {
               ></Form.Control>
             </Form.Group>
             <Form.Group className="mt-2">
-              <Form.Label>Email</Form.Label>
               <Form.Control
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -76,8 +81,7 @@ export default function MyContactForm() {
                 className="shadow"
               ></Form.Control>
             </Form.Group>
-            <Form.Group>
-              <Form.Label className="mt-2">Message</Form.Label>
+            <Form.Group className="mt-2">
               <Form.Control
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -90,13 +94,11 @@ export default function MyContactForm() {
             <Button className="mt-3" variant="outline-success" type="submit">
               Send Message
             </Button>
-            <MessageSentAlert
-              show={successAlertShow}
-              onClose={() => setSuccessAlertShow(false)}
-            />
-            <MessageFailedAlert
-              show={failAlertShow}
-              onClose={() => setFailAlertShow(false)}
+            <ContactFormAlert
+              show={contactFormAlertShow}
+              variant={contactFormVariant}
+              onClose={() => setContactFormAlertShow(false)}
+              content={contactFormContent}
             />
           </Form>
         </Col>
@@ -105,30 +107,16 @@ export default function MyContactForm() {
   );
 }
 
-function MessageSentAlert({ show, onClose }: AlertProps) {
+function ContactFormAlert({ show, onClose, variant, content }: AlertProps) {
   return (
     <Alert
       className="mt-3"
       show={show}
-      variant="success"
+      variant={variant}
       onClose={onClose}
       dismissible
     >
-      Thank you for contacting me
-    </Alert>
-  );
-}
-
-function MessageFailedAlert({ show, onClose }: AlertProps) {
-  return (
-    <Alert
-      className="mt-3"
-      show={show}
-      variant="danger"
-      onClose={onClose}
-      dismissible
-    >
-      Couldn't send message. Try again later
+      {content}
     </Alert>
   );
 }
