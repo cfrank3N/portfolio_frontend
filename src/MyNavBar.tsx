@@ -6,7 +6,7 @@ export default function MyNavBar() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container className="sm-6">
         <Col className="d-flex justify-content-left align-items-center">
-          <Navbar.Brand>Adam Frank</Navbar.Brand>
+          <Navbar.Brand href="/">Adam Frank</Navbar.Brand>
           <Nav.Link
             className="me-3"
             href="https://github.com/cfrank3N"
@@ -29,7 +29,7 @@ export default function MyNavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="#my-projects">My projects</Nav.Link>
-            <Nav.Link href="#contact-me">Contact me</Nav.Link>
+            <Nav.Link href="/contact">Contact me</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
